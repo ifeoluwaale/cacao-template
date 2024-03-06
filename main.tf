@@ -46,7 +46,6 @@ resource "openstack_compute_instance_v2" "os_instances" {
 }
 
 data "openstack_networking_network_v2" "ext_network" {
-  # make the assumption that there is only 1 external network per region, this will fail if otherwise
   region = var.region
   external = true
 }
@@ -58,9 +57,6 @@ resource "openstack_networking_floatingip_v2" "os_floatingips" {
   description = "floating ip for ${var.instance_name}, ${count.index}/${var.instance_count}"
 }
 
-# EJS - we need to incorporate a wait before associating floating ips since js2 neutron might need time to "think"
-# We should later evaluate if this is just an IU issue or this is an issue across all clouds
-# due to constraints of depends_on meta variable, I can only use the first element -- no template syntax, calculations, etc are allowed :(
 resource "time_sleep" "fip_associate_timewait" {
   count = var.power_state == "active" ? 1 : 0
   depends_on = [openstack_compute_instance_v2.os_instances[0], openstack_networking_floatingip_v2.os_floatingips[0]]
