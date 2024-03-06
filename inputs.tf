@@ -90,3 +90,9 @@ variable "root_storage_delete_on_termination" {
   description = "bool, if true delete on termination"
   default = true
 }
+
+variable "fip_associate_timewait" {
+  type = string
+  description = "number, time to wait before associating a floating ip in seconds; needed for jetstream; will not be exposed to downstream clients"
+  default = "30s"
+}

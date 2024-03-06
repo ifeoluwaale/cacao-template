@@ -50,22 +50,20 @@
 
 ---
 - name: Play to install dplr and its requirements
-  hosts: all
+  hosts: myhosts
   any_errors_fatal: true
   gather_facts: false
   tags: install_dplr
   become: true
   tasks:
-    - name: Download R
+    - name: Update apt packages
       shell: apt update
 
-    - name: Install R
+    - name: Download and Install R
       shell: apt install r-base r-base-dev -y
-    
 
+    - name: Install XML
+      shell: apt-get install r-cran-xml
 
-
-
-
-
-    
+    - name: Install dplR
+      shell: Rscript -e 'install.packages("dplR", repos="http://cran.us.r-project.org")'

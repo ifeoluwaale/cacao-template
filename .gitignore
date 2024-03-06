@@ -36,3 +36,4 @@ terraform.rc
 cacao
 *.tar.gz
 *.rpm
+.terraform.lock.hcl
