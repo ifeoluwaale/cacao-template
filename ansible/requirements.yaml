@@ -1,0 +1,10 @@
+roles:
+- src: cyverse-ansible.docker
+- name: ansible-nginx-proxy-simple-token
+  src: https://github.com/CyVerse-Ansible/ansible-nginx-proxy-simple-token.git
+  version: main
+  scm: git
+
+collections:
+- ansible.posix
+- community.general
