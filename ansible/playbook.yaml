@@ -48,7 +48,7 @@
 
 
 - name: Play to install dplr and its requirements
-  hosts: myhosts
+  hosts: all
   any_errors_fatal: true
   gather_facts: false
   tags: install_dplr

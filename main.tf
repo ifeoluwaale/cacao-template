@@ -22,7 +22,7 @@ resource "openstack_compute_instance_v2" "os_instances" {
     user_data = var.user_data
 
     network {
-        name = "auto_allocated_network"
+      name = "auto_allocated_network"
     }
 
     block_device {
