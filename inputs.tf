@@ -40,7 +40,7 @@ variable "image_name" {
 variable "flavor" {
   type = string
   description = "flavor or size of instance to launch"
-  default = "m1.tiny"
+  default = "m3.tiny"
 }
 
 variable "keypair" {

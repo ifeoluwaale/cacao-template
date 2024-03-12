@@ -32,7 +32,6 @@
       when: ansible_user is not defined
 
 
----
 - name: Play to install dplpy and its requirements
   hosts: all
   any_errors_fatal: true
@@ -48,7 +47,6 @@
         name: dplpy
 
 
----
 - name: Play to install dplr and its requirements
   hosts: myhosts
   any_errors_fatal: true
