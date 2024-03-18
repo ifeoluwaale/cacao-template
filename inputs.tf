@@ -55,6 +55,12 @@ variable "power_state" {
   default = "active"
 }
 
+variable "ip_pool" {
+  type = string
+  description = "deprecated"
+  default = "public"
+}
+
 variable "user_data" {
   type = string
   description = "cloud init script"
